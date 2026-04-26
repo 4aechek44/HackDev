@@ -1,5 +1,6 @@
 import Navbar from "./components/navbar";
 import Quests from "./components/quests";
+import Money from "./components/money";
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div>
       <Navbar />
       <Quests />
+      <Money />
     </div>
   );
 }
