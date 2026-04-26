@@ -3,7 +3,7 @@ import Editor from '@monaco-editor/react';
 import './code_editor.css';
 
 function CodeEditor({ onRun }) {
-  const [code, setCode] = useState('// твой код здесь\n');
+  const [code, setCode] = useState('// your code here\n');
   const [output, setOutput] = useState(null);
   const iframeRef = useRef(null);
 
@@ -41,7 +41,7 @@ function CodeEditor({ onRun }) {
       </div>
 
       <Editor
-        height="360px"
+        height="300px"
         language="javascript"
         theme="vs-dark"
         value={code}
@@ -57,7 +57,7 @@ function CodeEditor({ onRun }) {
       {output !== null && (
         <div className="code-output">
           <span className="output-label">OUTPUT &gt;</span>
-          <pre className="code-input">{output || '(пусто)'}</pre>
+          <pre className="code-input">{output || '(empty)'}</pre>
         </div>
       )}
 

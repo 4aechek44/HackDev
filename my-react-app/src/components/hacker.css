@@ -1,0 +1,17 @@
+.hacker-scene {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.hacker-gif {
+  height: 220px;
+  image-rendering: pixelated;
+  display: block;
+}
+
+.hacker-idle {
+  opacity: 0; /* невидимый, но занимает место */
+}
