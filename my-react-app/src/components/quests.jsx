@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
 import './quests.css';
 
-const Quests = () => {
-  const [quests, setQuests] = useState([]);
-
+function Quests() {
   return (
     <div className="quests-container">
       <h2>Quests</h2>
