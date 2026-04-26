@@ -1,6 +1,7 @@
 import Navbar from "./components/navbar";
 import Quests from "./components/quests";
 import Money from "./components/money";
+import CodeEditor from "./components/code_editor";
 import './App.css';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Navbar />
       <Quests />
       <Money />
+      <CodeEditor />
     </div>
   );
 }
