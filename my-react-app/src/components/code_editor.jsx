@@ -41,7 +41,7 @@ function CodeEditor({ onRun }) {
       </div>
 
       <Editor
-        height="300px"
+        height="337px"
         language="javascript"
         theme="vs-dark"
         value={code}
