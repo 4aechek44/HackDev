@@ -1,4 +1,4 @@
-import './money.css'
+import './Money.css'
 
 function Money() {
   return (

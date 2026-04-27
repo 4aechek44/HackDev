@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import Editor from '@monaco-editor/react';
-import './code_editor.css';
+import './CodeEditor.css';
 
 function CodeEditor({ onRun }) {
   const [code, setCode] = useState('// your code here\n');

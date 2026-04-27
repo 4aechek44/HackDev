@@ -1,4 +1,4 @@
-import './quests.css';
+import './Quests.css';
 
 // Quests block
 const quests = [

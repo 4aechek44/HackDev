@@ -1,9 +1,9 @@
-import Navbar from "./components/navbar";
-import Quests from "./components/quests";
-import Money from "./components/money";
-import Level from "./components/level";
-import CodeEditor from "./components/code_editor";
-import Hacker from './components/hacker';
+import Navbar from "./components/Navbar";
+import Quests from "./components/Quests";
+import Money from "./components/Money";
+import Level from "./components/Level";
+import CodeEditor from "./components/CodeEditor"
+import Hacker from './components/Hacker';
 import './App.css';
 
 function App() {

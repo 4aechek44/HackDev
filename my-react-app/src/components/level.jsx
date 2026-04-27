@@ -1,4 +1,4 @@
-import './level.css'
+import './Level.css'
 
 function Level() {
   return (
