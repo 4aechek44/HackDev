@@ -1,10 +1,42 @@
 .quests-container {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
+  padding: 16px;
+  border: 1px solid #3a3a6a;
+  border-radius: 4px;
+  background-color: #0d0d1a;
   max-width: 400px;
   margin-top: 10px;
+  font-family: 'Courier New', monospace;
+}
+
+.quests-container h2 {
+  color: #7a7aaa;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  border-bottom: 1px solid #1a1a2e;
+  padding-bottom: 8px;
+}
+
+h4 {
+  color: #00ff88;
+  font-size: 14px;
+  margin: 0 0 8px 0;
+}
+
+.quest {
+  color: #ccccee;
+  font-size: 13px;
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+}
+
+.reward {
+  color: #7e7ea4;
+  font-size: 11px;
+  margin: 0;
+  border-top: 1px solid #2a2a49;
+  padding-top: 8px;
 }
