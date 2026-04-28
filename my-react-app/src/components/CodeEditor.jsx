@@ -1,11 +1,17 @@
 import { useState, useRef } from 'react';
+import { useContext } from 'react';
 import Editor from '@monaco-editor/react';
 import './CodeEditor.css';
+import GameContext from './GameContext';
+import { quests } from '../data/quests';
 
 function CodeEditor({ onRun }) {
   const [code, setCode] = useState('// your code here\n');
   const [output, setOutput] = useState(null);
   const iframeRef = useRef(null);
+
+  // сюда — на верхний уровень
+  const { activeQuest, setActiveQuest, xp, setXp, money, setMoney } = useContext(GameContext);
 
   const runCode = () => {
     setOutput('');
@@ -24,7 +30,17 @@ function CodeEditor({ onRun }) {
     </script></body></html>`;
 
     window.addEventListener('message', function handler(e) {
-      if (e.data?.type === 'log') setOutput(e.data.data.join('\n'));
+      if (e.data?.type === 'log') {
+        const result = e.data.data.join('\n');
+        setOutput(result);
+
+      if (result.trim() === quests[activeQuest].expected) {
+        setXp(xp + quests[activeQuest].reward.xp);
+        setMoney(money + quests[activeQuest].reward.money);
+      if (activeQuest + 1 < quests.length) {
+        setActiveQuest(activeQuest + 1);
+      }}
+      }
       if (e.data?.type === 'error') setOutput('❌ ' + e.data.data);
       if (onRun) onRun(e.data);
       window.removeEventListener('message', handler);

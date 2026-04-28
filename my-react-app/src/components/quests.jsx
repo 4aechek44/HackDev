@@ -1,18 +1,7 @@
 import './Quests.css';
 import { useContext } from 'react';
 import GameContext from './GameContext';
-
-// Quests block
-const quests = [
-  {
-  id: 1,
-  title: 'test',
-  quest: 'input "hack start" in console',
-  expected: 'hack start',
-  reward: { xp: 10, money: 100},
-  unlocked: true
-  }
-]
+import { quests } from '../data/quests';
 
 function Quests() {
     
