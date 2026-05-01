@@ -1,6 +1,6 @@
 .code-editor-container {
   background: #0d0d1a;
-  border: 1px solid #3a3a6a;
+  border: 1px solid #30393b;
   border-radius: 10px;
   overflow: hidden;
   font-family: 'Courier New', monospace;
@@ -9,11 +9,6 @@
   right: 16px;
   width: 680px;
   z-index: 1000;
-  background: #0d0d1a;
-  border: 1px solid #3a3a6a;
-  border-radius: 10px;
-  overflow: hidden;
-  font-family: 'Courier New', monospace;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
 
 }
@@ -23,20 +18,21 @@
   justify-content: space-between;
   align-items: center;
   padding: 6px 12px;
-  background: #1a1a2e;
-  border-bottom: 1px solid #3a3a6a;
+  background: #1b1b21;
+  border-bottom: 1px solid #323131;
 }
 
 .code-editor-header h5 {
   margin: 0;
-  color: #7a7aaa;
+  color: #b7aebe;
   font-size: 12px;
 }
 
 .compile-button {
-  background: #2a2a5a;
-  color: #00ff88;
-  border: 1px solid #00ff88;
+  background: #1a1a2e;
+  color: #9000ff;
+  border: 1.3px solid #9000ff;
+  border-radius: 5px;
   padding: 3px 12px;
   cursor: pointer;
   font-family: 'Courier New', monospace;
@@ -45,7 +41,7 @@
 }
 
 .compile-button:hover {
-  background: #00ff88;
+  background: #9000ff;
   color: #0d0d1a;
 }
 
@@ -53,7 +49,7 @@
   padding: 10px 14px;
   background: #0a0a15;
   border-top: 1px solid #3a3a6a;
-  color: #00ff88;
+  color: #9000ff;
 }
 
 .output-label {

@@ -1,12 +1,13 @@
 .navbar {
     display: flex;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #0d0d1ae4;
+    background-size: auto;
     padding: 10px 20px;
 }
 
 .navbar-title{
-    color: black;
+    color: White;
     font-size: 24px;
     font-weight: bold;
     margin-right: 20px;

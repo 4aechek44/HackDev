@@ -53,7 +53,7 @@ function CodeEditor({ onRun }) {
     <div className="code-editor-container">
       <div className="code-editor-header">
         <h5>SV Code</h5>
-        <button className="compile-button" onClick={runCode}>▶ Compile</button>
+        <button className="compile-button" onClick={runCode}>▶ COMPILE</button>
       </div>
 
       <Editor

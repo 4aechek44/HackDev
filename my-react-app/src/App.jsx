@@ -1,3 +1,4 @@
+import './App.css';
 import Navbar from "./components/Navbar";
 import Quests from "./components/Quests";
 import Money from "./components/Money";
