@@ -2,8 +2,8 @@ import './Phone.css';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Phone() {
-  const [open, setOpen] = useState(false);       // открыто меню приложений
-  const [activeApp, setActiveApp] = useState(null); // какое приложение активно
+  const [open, setOpen] = useState(false);       
+  const [activeApp, setActiveApp] = useState(null); 
   const ref = useRef(null);
 
   const toggle = (appName) => {
@@ -14,7 +14,7 @@ export default function Phone() {
     const handler = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
         setOpen(false);
-        setActiveApp(null); // закрываем и приложение тоже
+        setActiveApp(null); 
       }
     };
     document.addEventListener('mousedown', handler);
@@ -27,6 +27,11 @@ export default function Phone() {
 
       {open && (
         <div className="phone-apps">
+          <div className='status-bar'>
+            <span>10:30</span>   {/*Позже добавить время */}
+            <span>🔋</span>          
+          </div>
+
           {/* Кошелёк */}
           <button className="vallet" onClick={() => toggle('vallet')}>👛</button>
           {activeApp === 'vallet' && <div className="vallet-menu">Баланс: $...</div>}
@@ -38,6 +43,18 @@ export default function Phone() {
           {/* Википедия */}
           <button className="wiki" onClick={() => toggle('wiki')}>📚</button>
           {activeApp === 'wiki' && <div className="wiki-menu">Википедия открыта</div>}
+
+          {/* Магазин */}
+          <button className="store" onClick={() => toggle('store')}>🛍️</button>
+          {activeApp === 'store' && <div className="store-menu">Магазин открыть</div>}
+
+          {/* Настройки */}
+          <button className="settings" onClick={() => toggle('settings')}>⚙️</button>
+          {activeApp === 'settings' && <div className="settings-menu">Настройки</div>}
+
+          {/* Форум */}
+          <button className="forum" onClick={() => toggle('forum')}>💬</button>
+          {activeApp === 'forum' && <div className="forum-menu">Форум открыть</div>}
         </div>
       )}
     </div>
