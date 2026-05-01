@@ -1,33 +1,10 @@
-/* Phone.css */
-
-/* Кнопка-триггер ⠿ */
-.trigger-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  color: #888;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, border-color 0.2s;
-}
-.trigger-btn:hover {
-  background: #222;
-  border-color: #444;
-  color: #aaa;
-}
-
 /* Контейнер телефона */
 .phone-apps {
   position: absolute;
-  top: 52px;
-  left: 0;
+  top: 360px;
+  left: 65px;
   transform: none;
-  width: 280px;
+  width: 350px;
   background: #0f0f0f;
   border: 1px solid #1e1e1e;
   border-radius: 28px;
@@ -86,7 +63,6 @@
   padding: 14px 8px;
   background: #141414;
   border: 1px solid #1e1e1e;
-  border-radius: 14px;
   cursor: pointer;
   font-size: 22px;
   transition: background 0.15s, border-color 0.15s, transform 0.1s;
