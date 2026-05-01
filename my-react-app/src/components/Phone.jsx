@@ -32,7 +32,8 @@ export default function Phone() {
             <span className='time'>10:30</span>
             <span className='energy'>🔋</span>
           </div>
-
+        
+        <div className="apps-grid">
           {/* Кошелёк */}
           {(!activeApp || activeApp === 'vallet') && (
             <button className="vallet" onClick={() => toggle('vallet')}>👛</button>
@@ -69,6 +70,7 @@ export default function Phone() {
           )}
           {activeApp === 'forum' && <div className="forum-menu">Форум открыть</div>}
         </div>
+      </div>
       )}
     </div>
   );
