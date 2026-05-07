@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <h4 className="navbar-title">
-        <img className="nav-logo" src="public/favicon.svg" alt="Logo" />
+        <img className="nav-logo" src="/favicon.svg" alt="Logo" />
         Hack<span className='navbar-dev'>Dev</span>
       </h4>
 
@@ -26,6 +26,17 @@ function Navbar() {
         <button className={activeButton === 'Settings' ? 'active' : ''}
           onClick={() => setActiveButton('Settings')}>
           Settings
+        </button>
+      </div>
+
+      <div className='navbar-info'>
+        <img className="nav-star" src="/star.png" alt="star" />
+        <span className='nav-xp'>Level: </span>
+        
+        <span>ТУТ ПОЗЖЕ ПОЛОСКУ С УРОВНЕМ ДОБАВИТЬ</span>
+        
+        <button className="avatar-btn">
+          <img className="nav-avatar" src="/avatar.png" alt="avatar" />
         </button>
       </div>
     </nav>

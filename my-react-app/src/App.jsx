@@ -1,8 +1,6 @@
 import './App.css';
 import Navbar from "./components/Navbar";
 import Quests from "./components/Quests";
-import Money from "./components/Money";
-import Level from "./components/Level";
 import CodeEditor from "./components/CodeEditor"
 import Phone from "./components/Phone";
 import Hacker from './components/Hacker';
