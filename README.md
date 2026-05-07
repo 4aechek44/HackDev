@@ -1,1 +1,1 @@
-Hack Game
+Cool Hack Game
