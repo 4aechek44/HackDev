@@ -2,18 +2,16 @@ import './Phone.css';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Phone() {
-  const [open, setOpen] = useState(false);
+
   const [activeApp, setActiveApp] = useState(null);
   const ref = useRef(null);
-
   const toggle = (appName) => {
     setActiveApp(prev => prev === appName ? null : appName);
   };
 
   useEffect(() => {
     const handler = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setOpen(false);
+      if (ref.current && !ref.current.contains(e.target)) {  
         setActiveApp(null);
       }
     };
