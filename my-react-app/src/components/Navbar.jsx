@@ -8,6 +8,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <h4 className="navbar-title">
+        <img className="nav-logo" src="public/favicon.svg" alt="Logo" />
         Hack<span className='navbar-dev'>Dev</span>
       </h4>
 

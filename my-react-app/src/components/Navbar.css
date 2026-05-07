@@ -18,6 +18,14 @@
     font-family: 'Courier New', monospace;
 }
 
+.nav-logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    transform: translateY(5px);
+    
+}
+
 .navbar-btn button {
     color: #c6c0b3;
     background-color: transparent;
