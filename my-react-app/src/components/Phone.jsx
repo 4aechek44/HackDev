@@ -28,6 +28,7 @@ export default function Phone() {
 
   return (
     <div ref={ref} style={{ position: 'relative' }}>
+     <div className="phone-shell">
       <div className="phone-apps">
 
         <div className="status-bar">
@@ -54,8 +55,8 @@ export default function Phone() {
             ))}
           </div>
         )}
-
       </div>
+     </div>
     </div>
   );
 }

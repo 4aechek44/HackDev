@@ -1,20 +1,67 @@
-/* ── Обёртка телефона ── */
-.phone-apps {
+/* ── Обёртка-корпус телефона ── */
+.phone-shell {
   position: absolute;
   top: 377px;
   left: 65px;
+  z-index: 100;
+}
+
+/* Кнопка питания — справа */
+.phone-shell::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 100px;
+  width: 4px;
+  height: 52px;
+  background: #1c1c1c;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.6);
+}
+
+/* Кнопка громкости 1 — слева */
+.phone-shell::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 80px;
+  width: 4px;
+  height: 36px;
+  background: #1c1c1c;
+  border-radius: 4px 0 0 4px;
+  box-shadow: -2px 0 4px rgba(0,0,0,0.6);
+}
+
+/* ── Сам телефон ── */
+.phone-apps {
   width: 340px;
   height: 380px;
   background: #080808;
   border: 2.5px solid #1c1c1c;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   overflow: hidden;
-  z-index: 100;
   box-shadow:
     0 0 0 1px #000,
     0 20px 60px rgba(0, 0, 0, 0.8);
   animation: phoneIn 0.2s ease;
+  position: relative;
+}
+
+/* ── Чёлка (notch) ── */
+.phone-apps::before {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 22px;
+  background: #080808;
+  border-radius: 0 0 16px 16px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  border: 2.5px solid #1c1c1c;
+  border-top: none;
 }
 
 @keyframes phoneIn {
@@ -27,8 +74,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 16px 8px;
+  padding: 4px 16px 8px;
   background: #050505;
+  margin-top: -4px;
 }
 
 .status-bar .time {
@@ -94,26 +142,24 @@
   font-size: 22px;
 }
 
-/* ── Цвета иконок (индивидуальные) ── */
-.mail    .app-icon { background: #1a2a5a; }
-.vallet  .app-icon { background: #1a3a20; }
-.wiki    .app-icon { background: #2a1a4a; }
-.forum   .app-icon { background: #3a2a10; }
-.store   .app-icon { background: #3a1a10; }
+/* ── Цвета иконок ── */
+.mail     .app-icon { background: #1a2a5a; }
+.vallet   .app-icon { background: #1a3a20; }
+.wiki     .app-icon { background: #2a1a4a; }
+.forum    .app-icon { background: #3a2a10; }
+.store    .app-icon { background: #3a1a10; }
 .settings .app-icon { background: #0a2a3a; }
 
 /* ── Лейбл под иконкой ── */
 .vallet .app-label, .mail .app-label, .wiki .app-label,
 .store .app-label, .settings .app-label, .forum .app-label {
-  font-size: 15px;
+  font-size: 11px;
   color: #888;
   letter-spacing: 0.3px;
-  text-transform: capitalize;
 }
 
-/* ── Экраны приложений (если раскрываются) ── */
-.vallet-menu, .mail-menu, .wiki-menu,
-.store-menu, .settings-menu, .forum-menu {
+/* ── Экраны приложений ── */
+.app-screen {
   margin: 0 10px 12px;
   background: #111;
   border: 1px solid #1e1e1e;
@@ -123,6 +169,19 @@
   color: #666;
   font-family: 'Share Tech Mono', monospace;
   animation: screenIn 0.15s ease;
+  min-height: 200px;
+}
+
+.app-back {
+  display: block;
+  background: none;
+  border: none;
+  color: #4ade80;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 0;
 }
 
 @keyframes screenIn {
