@@ -1,2 +1,1 @@
-React + Vite
-Cool Hack Game
+in dev
