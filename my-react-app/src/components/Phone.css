@@ -1,98 +1,131 @@
-/* Контейнер телефона */
+/* ── Обёртка телефона ── */
 .phone-apps {
   position: absolute;
-  top: 360px;
+  top: 377px;
   left: 65px;
-  transform: none;
-  width: 350px;
-  background: #0f0f0f;
-  border: 1px solid #1e1e1e;
-  border-radius: 28px;
+  width: 340px;
+  height: 380px;
+  background: #080808;
+  border: 2.5px solid #1c1c1c;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   overflow: hidden;
   z-index: 100;
+  box-shadow:
+    0 0 0 1px #000,
+    0 20px 60px rgba(0, 0, 0, 0.8);
   animation: phoneIn 0.2s ease;
 }
 
 @keyframes phoneIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96) translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  from { opacity: 0; transform: scale(0.96) translateY(-6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* Статус-бар */
+/* ── Статус-бар ── */
 .status-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 18px 10px;
-  background: #0a0a0a;
-  border-bottom: 1px solid #1a1a1a;
-}
-.status-bar .level {
-  font-size: 11px;
-  color: #e8c56d;
-  font-family: monospace;
-  letter-spacing: 0.5px;
-}
-.status-bar .time {
-  font-size: 12px;
-  color: #888;
-  font-family: monospace;
+  padding: 10px 16px 8px;
+  background: #050505;
 }
 
-/* Сетка кнопок */
+.status-bar .time {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 12px;
+  color: #cccccc;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.status-bar .energy {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #888;
+}
+
+/* ── Сетка приложений ── */
 .apps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  padding: 10px;
+  gap: 6px;
+  padding: 12px 10px 16px;
 }
 
-/* Кнопки приложений */
+/* ── Общие стили кнопок приложений ── */
 .vallet, .mail, .wiki,
 .store, .settings, .forum {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 14px 8px;
-  background: #141414;
-  border: 1px solid #1e1e1e;
+  gap: 6px;
+  padding: 12px 6px 10px;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  font-size: 22px;
-  transition: background 0.15s, border-color 0.15s, transform 0.1s;
-  width: 100%;
-}
-.vallet:hover, .mail:hover, .wiki:hover,
-.store:hover, .settings:hover, .forum:hover {
-  background: #1a1a1a;
-  border-color: #2a2a2a;
-}
-.vallet:active, .mail:active, .wiki:active,
-.store:active, .settings:active, .forum:active {
-  transform: scale(0.95);
+  border-radius: 14px;
+  transition: background 0.15s, transform 0.1s;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
 }
 
-/* Экраны приложений */
+.vallet:hover, .mail:hover, .wiki:hover,
+.store:hover, .settings:hover, .forum:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.vallet:active, .mail:active, .wiki:active,
+.store:active, .settings:active, .forum:active {
+  transform: scale(0.92);
+}
+
+/* ── Иконка внутри кнопки ── */
+.vallet .app-icon, .mail .app-icon, .wiki .app-icon,
+.store .app-icon, .settings .app-icon, .forum .app-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* ── Цвета иконок (индивидуальные) ── */
+.mail    .app-icon { background: #1a2a5a; }
+.vallet  .app-icon { background: #1a3a20; }
+.wiki    .app-icon { background: #2a1a4a; }
+.forum   .app-icon { background: #3a2a10; }
+.store   .app-icon { background: #3a1a10; }
+.settings .app-icon { background: #0a2a3a; }
+
+/* ── Лейбл под иконкой ── */
+.vallet .app-label, .mail .app-label, .wiki .app-label,
+.store .app-label, .settings .app-label, .forum .app-label {
+  font-size: 15px;
+  color: #888;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+}
+
+/* ── Экраны приложений (если раскрываются) ── */
 .vallet-menu, .mail-menu, .wiki-menu,
 .store-menu, .settings-menu, .forum-menu {
-  margin: 0 10px 10px;
-  background: #141414;
+  margin: 0 10px 12px;
+  background: #111;
   border: 1px solid #1e1e1e;
-  border-radius: 16px;
-  padding: 16px;
-  min-height: 160px;
-  font-size: 13px;
-  color: #555;
-  animation: screenIn 0.18s ease;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 12px;
+  color: #666;
+  font-family: 'Share Tech Mono', monospace;
+  animation: screenIn 0.15s ease;
 }
 
 @keyframes screenIn {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
 }

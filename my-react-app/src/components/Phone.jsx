@@ -1,70 +1,61 @@
 import './Phone.css';
 import { useState, useEffect, useRef } from 'react';
 
-export default function Phone() {
+const APPS = [
+  { id: 'mail',     icon: '✉️',  label: 'Mail',    menu: 'Почта пуста' },
+  { id: 'vallet',   icon: '💳',  label: 'Vallet',  menu: 'Баланс: $...' },
+  { id: 'wiki',     icon: '📖',  label: 'Wiki',      menu: 'Википедия открыта' },
+  { id: 'forum',    icon: '💬',  label: 'Forum',     menu: 'Форум открыть' },
+  { id: 'store',    icon: '🛒',  label: 'Store',    menu: 'Магазин открыть' },
+  { id: 'settings', icon: '🌐',  label: 'Settings',   menu: 'Браузер открыть' },
+];
 
+export default function Phone() {
   const [activeApp, setActiveApp] = useState(null);
   const ref = useRef(null);
-  const toggle = (appName) => {
-    setActiveApp(prev => prev === appName ? null : appName);
-  };
+
+  const toggle = (id) => setActiveApp(prev => prev === id ? null : id);
 
   useEffect(() => {
     const handler = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {  
-        setActiveApp(null);
-      }
+      if (ref.current && !ref.current.contains(e.target)) setActiveApp(null);
     };
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
+  const active = APPS.find(a => a.id === activeApp);
+
   return (
     <div ref={ref} style={{ position: 'relative' }}>
-      
-        <div className="phone-apps">
-          <div className='status-bar'>
-            <span className='time'>10:30</span>
-            <span className='energy'>🔋</span>
-          </div>
-        
-        
-          {/* Кошелёк */}
-          {(!activeApp || activeApp === 'vallet') && (
-            <button className="vallet" onClick={() => toggle('vallet')}>👛</button>
-          )}
-          {activeApp === 'vallet' && <div className="vallet-menu">Баланс: $...</div>}
+      <div className="phone-apps">
 
-          {/* Почта */}
-          {(!activeApp || activeApp === 'mail') && (
-            <button className="mail" onClick={() => toggle('mail')}>📧</button>
-          )}
-          {activeApp === 'mail' && <div className="mail-menu">Почта пуста</div>}
-
-          {/* Википедия */}
-          {(!activeApp || activeApp === 'wiki') && (
-            <button className="wiki" onClick={() => toggle('wiki')}>📚</button>
-          )}
-          {activeApp === 'wiki' && <div className="wiki-menu">Википедия открыта</div>}
-
-          {/* Магазин */}
-          {(!activeApp || activeApp === 'store') && (
-            <button className="store" onClick={() => toggle('store')}>🛍️</button>
-          )}
-          {activeApp === 'store' && <div className="store-menu">Магазин открыть</div>}
-
-          {/* Настройки */}
-          {(!activeApp || activeApp === 'settings') && (
-            <button className="settings" onClick={() => toggle('settings')}>⚙️</button>
-          )}
-          {activeApp === 'settings' && <div className="settings-menu">Настройки</div>}
-
-          {/* Форум */}
-          {(!activeApp || activeApp === 'forum') && (
-            <button className="forum" onClick={() => toggle('forum')}>💬</button>
-          )}
-          {activeApp === 'forum' && <div className="forum-menu">Форум открыть</div>}
+        <div className="status-bar">
+        <span className="time">10:30</span> {/* ДОБАВИТЬ ПОЗЖЕ ВРЕМЯ НАСТОЯЩЕЕ */}
+          <span className="energy">▌▌▌ 🔋</span>
         </div>
+
+        {activeApp ? (
+          <div className={`${activeApp}-menu app-screen`}>
+            <button className="app-back" onClick={() => setActiveApp(null)}>← назад</button>
+            {active.menu}
+          </div>
+        ) : (
+          <div className="apps-grid">
+            {APPS.map(app => (
+              <button
+                key={app.id}
+                className={app.id}
+                onClick={() => toggle(app.id)}
+              >
+                <div className="app-icon">{app.icon}</div>
+                <span className="app-label">{app.label}</span>
+              </button>
+            ))}
+          </div>
+        )}
+
       </div>
+    </div>
   );
 }
