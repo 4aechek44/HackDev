@@ -8,7 +8,8 @@ function Navbar() {
 
   const [activeButton, setActiveButton] = useState('Quests');
   const { level, progress, xp, getXpForLevel } = useContext(GameContext)
-  const nextLevelXp = getXpForLevel(level + 1)
+  const currentLevelXp = getXpForLevel(level)
+  const nextLevelXp = getXpForLevel(level + 1) - currentLevelXp
 
   return (
     <nav className="navbar">
@@ -42,7 +43,7 @@ function Navbar() {
         <div className="xp-bar">
         
         </div>
-      <span>{xp} / {nextLevelXp} XP</span>  
+      <span>|{xp - currentLevelXp} / {nextLevelXp} XP</span>  
         
         <button className="avatar-btn">
           <img className="nav-avatar" src="/avatar.png" alt="avatar" />
