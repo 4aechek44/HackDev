@@ -1,9 +1,14 @@
 import './Navbar.css';
 import { useState } from 'react';
+import { useContext } from 'react';
+import GameContext from './GameContext';
+
 
 function Navbar() {
 
   const [activeButton, setActiveButton] = useState('Quests');
+  const { level, progress, xp, getXpForLevel } = useContext(GameContext)
+  const nextLevelXp = getXpForLevel(level + 1)
 
   return (
     <nav className="navbar">
@@ -33,7 +38,11 @@ function Navbar() {
         <img className="nav-star" src="/star.png" alt="star" />
         <span className='nav-xp'>Level: </span>
         
-        <span>ТУТ ПОЗЖЕ ПОЛОСКУ С УРОВНЕМ ДОБАВИТЬ</span>
+      <span>{level}</span>
+        <div className="xp-bar">
+        
+        </div>
+      <span>{xp} / {nextLevelXp} XP</span>  
         
         <button className="avatar-btn">
           <img className="nav-avatar" src="/avatar.png" alt="avatar" />
