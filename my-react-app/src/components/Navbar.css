@@ -53,7 +53,7 @@
 
 .navbar-info{
     margin-left: auto;
-    color: #888;
+    color: #aca9a9;
     font-size: 12px;
     font-family: 'Courier New', monospace;
     display: flex;
@@ -87,3 +87,17 @@
     border-radius: 50%;
     display: block;
 }
+
+.nav-level{
+    font-size: 17px;
+    padding: 5px 10px;
+    margin-left: 8px;
+    margin-top: 6px;
+}
+.nav-xp-bar {
+    font-size: 17px;
+    padding: 5px 10px;
+    margin-left: 8px;
+    margin-top: 6px;
+}
+    
