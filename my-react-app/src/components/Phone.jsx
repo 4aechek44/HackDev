@@ -1,5 +1,5 @@
 import './Phone.css';
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useContext } from 'react';
 import GameContext from './GameContext';
 
@@ -23,13 +23,24 @@ export default function Phone() {
 
   const active = APPS.find(a => a.id === activeApp);
 
+  const [time, setTime] = useState(
+  new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+);
+
+  useEffect(() => {
+  const interval = setInterval(() => {
+  setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+  }, 1000);
+  return () => clearInterval(interval);
+}, []);
+
   return (
     <div ref={ref} style={{ position: 'relative' }}>
      <div className="phone-shell">
       <div className="phone-apps">
 
         <div className="status-bar">
-        <span className="time">10:30</span> {/* ДОБАВИТЬ ПОЗЖЕ ВРЕМЯ НАСТОЯЩЕЕ */}
+        <span className="time">{time}</span>
           <span className="energy">▌▌▌ 🔋</span>
         </div>
 
