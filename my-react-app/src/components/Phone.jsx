@@ -1,28 +1,25 @@
 import './Phone.css';
-import { useState, useEffect, useRef } from 'react';
-
-const APPS = [
-  { id: 'mail',     icon: '✉️',  label: 'Mail',    menu: 'Почта пуста' },
-  { id: 'vallet',   icon: '💳',  label: 'Vallet',  menu: 'Баланс: $...' },
-  { id: 'wiki',     icon: '📖',  label: 'Wiki',      menu: 'Википедия открыта' },
-  { id: 'forum',    icon: '💬',  label: 'Forum',     menu: 'Форум открыть' },
-  { id: 'store',    icon: '🛒',  label: 'Store',    menu: 'Магазин открыть' },
-  { id: 'settings', icon: '🌐',  label: 'Settings',   menu: 'Браузер открыть' },
-];
+import { useState, useRef } from 'react';
+import { useContext } from 'react';
+import GameContext from './GameContext';
 
 export default function Phone() {
+  
+  const { money } = useContext(GameContext);
+
   const [activeApp, setActiveApp] = useState(null);
   const ref = useRef(null);
 
   const toggle = (id) => setActiveApp(prev => prev === id ? null : id);
 
-  useEffect(() => {
-    const handler = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setActiveApp(null);
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, []);
+  const APPS = [
+  { id: 'mail',     icon: '✉️',  label: 'Mail',     menu: 'Почта пуста' },
+  { id: 'vallet',   icon: '💳',  label: 'Vallet',   menu: 'Баланс: $' + money },
+  { id: 'wiki',     icon: '📖',  label: 'Wiki',     menu: 'Википедия открыта' },
+  { id: 'forum',    icon: '💬',  label: 'Forum',    menu: 'Форум открыть' },
+  { id: 'store',    icon: '🛒',  label: 'Store',    menu: 'Магазин открыть' },
+  { id: 'settings', icon: '🌐',  label: 'Settings', menu: 'Браузер открыть' },
+];
 
   const active = APPS.find(a => a.id === activeApp);
 
@@ -38,7 +35,7 @@ export default function Phone() {
 
         {activeApp ? (
           <div className={`${activeApp}-menu app-screen`}>
-            <button className="app-back" onClick={() => setActiveApp(null)}>← назад</button>
+            <button className="app-back" onClick={() => setActiveApp(null)}>← Назад</button>
             {active.menu}
           </div>
         ) : (

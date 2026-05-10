@@ -8,6 +8,10 @@ export function GameProvider({ children }) {
   const [xp, setXp] = useState(0)
   const [money, setMoney] = useState(0)
 
+  // Деньги
+  const addMoney = (amount) => setMoney(prev => prev + amount)
+  const spendMoney = (amount) => setMoney(prev => Math.max(0, prev - amount))
+
   // XP нужный для начала уровня N
   const getXpForLevel = (level) => (10 * level * (level - 1)) / 2
 
@@ -38,6 +42,8 @@ export function GameProvider({ children }) {
       activeQuest, setActiveQuest,
       xp, setXp,
       money, setMoney,
+      addMoney,
+      spendMoney,
       level,
       progress,
       getXpForLevel,
