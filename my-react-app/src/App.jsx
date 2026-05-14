@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from "./components/Navbar";
 import Quests from "./components/Quests";
-import CodeEditor from "./components/CodeEditor"
+import Computer from "./components/computer";
 import Phone from "./components/Phone";
 import Hacker from './components/Hacker';
 import { GameProvider } from "./components/GameContext";
@@ -13,7 +13,7 @@ function App() {
     <GameProvider>
       <Navbar />
       <Quests />
-      <CodeEditor />
+      <Computer />
       <Phone />
       <Hacker />
     </GameProvider>
