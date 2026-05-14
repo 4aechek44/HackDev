@@ -20,8 +20,16 @@ export default function Computer() {
   
 
   return (
-    <div className='computer-container'>
-
+    <div ref={ref} style={{ position: 'relative' }}>
+      <div className='computer-shell'>
+        <div className='computer-taskbar'>
+        {activeApp ? (
+          <div className={`${activeApp}-menu app-screen`}>
+            <button className="app-back" onClick={() => setActiveApp(null)}>← Назад</button>
+          </div>
+        ) : null}
+        </div>
+      </div>
     </div>
   );
 }

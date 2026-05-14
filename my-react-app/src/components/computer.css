@@ -1,0 +1,13 @@
+.computer-shell {
+  background-color: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  border-radius: 10px;
+  position: fixed;
+  right: 15px;
+  top: 70px;
+  width: 870px;
+  height: 390px;
+  overflow-y: auto;
+}
