@@ -23,12 +23,26 @@ export default function Computer() {
     <div ref={ref} style={{ position: 'relative' }}>
       <div className='computer-shell'>
         <div className='computer-taskbar'>
-        {activeApp ? (
-          <div className={`${activeApp}-menu app-screen`}>
-            <button className="app-back" onClick={() => setActiveApp(null)}>← Назад</button>
-          </div>
-        ) : null}
+            {/* сюда потом всякие иконки */}
         </div>
+        {activeApp ? (
+          <div className={`${activeApp}-menu computer-app-screen`}>
+            <button className="computer-app-back" onClick={() => setActiveApp(null)}>x</button>
+          </div>
+        ) : (
+          <div className="computer-apps">
+            {APPS.map(app => (
+              <button
+                key={app.id}
+                className="app-icon"
+                onClick={() => toggle(app.id)}
+              >
+                <div className="app-icon">{app.icon}</div>
+                <span className="app-label">{app.label}</span>
+              </button>
+            ))}
+          </div>
+        )}  
       </div>
     </div>
   );

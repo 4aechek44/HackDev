@@ -166,7 +166,7 @@
   color: #666;
   font-family: 'Share Tech Mono', monospace;
   animation: screenIn 0.15s ease;
-  min-height: 200px;
+  min-height: 290px;
 }
 
 .app-back {
