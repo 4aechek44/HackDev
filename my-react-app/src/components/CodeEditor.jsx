@@ -66,7 +66,7 @@ function buildIframe(code) {
 
     // Одно финальное сообщение со всем
     window.parent.postMessage({ type: 'done', data: __out__ }, '*');
-  <\/script></body></html>`;
+  </script></body></html>`;
 }
 
 function CodeEditor({ onRun }) {
