@@ -1,23 +1,34 @@
-import './computer.css';
-import { useState, useEffect, useRef } from 'react';
-import { useContext } from 'react';
-import GameContext from './GameContext';
+import './ComputerApp.css';
+import { useState, useRef } from 'react';
 
 
 export default function Computer() {
-  
+
   const APPS = [
-  { id: 'terminal', icon: '💻', label: 'Terminal', menu: 'Терминал открыт' },
-  { id: 'editor',   icon: '📝', label: 'Editor',   menu: 'Редактор кода открыт' },
-  { id: 'browser',  icon: '🌐', label: 'Browser',  menu: 'Браузер открыт' },
+  { id: 'terminal', icon: '💻', label: 'Terminal', 
+    content: () => (
+      <div className="terminal-content">
+        <p>Welcome to the aaa</p>
+        <p>Type 'help' for a list of commands.</p>
+      </div> )},
+  
+  { id: 'editor', icon: '📝', label: 'Editor',
+    content: () => (
+      <div className="editor-content">
+        <p>Editor coming soon...</p>
+      </div> )},
+
+  { id: 'browser', icon: '🌐', label: 'Browser',
+    content: () => (
+      <div className="browser-content">
+        <p>Browser coming soon...</p>
+      </div> )}
 ];
 
   const [activeApp, setActiveApp] = useState(null);
   const ref = useRef(null);
 
   const toggle = (id) => setActiveApp(prev => prev === id ? null : id);
-
-  
 
   return (
     <div ref={ref} style={{ position: 'relative' }}>
@@ -28,6 +39,9 @@ export default function Computer() {
         {activeApp ? (
           <div className={`${activeApp}-menu computer-app-screen`}>
             <button className="computer-app-back" onClick={() => setActiveApp(null)}>x</button>
+          
+           {(() => APPS.find(app => app.id === activeApp)?.content?.())()}
+
           </div>
         ) : (
           <div className="computer-apps">
@@ -47,4 +61,6 @@ export default function Computer() {
     </div>
   );
 }
+
+
 

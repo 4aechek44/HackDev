@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from "./components/Navbar";
 import Quests from "./components/Quests";
-import Computer from "./components/computer";
+import Computer from "./components/ComputerApp";
 import Phone from "./components/Phone";
 import Hacker from './components/Hacker';
 import { GameProvider } from "./components/GameContext";
