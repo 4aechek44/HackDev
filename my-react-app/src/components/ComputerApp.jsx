@@ -1,3 +1,4 @@
+import CodeEditor from './CodeEditor';
 import './ComputerApp.css';
 import { useState, useRef } from 'react';
 
@@ -7,10 +8,8 @@ export default function Computer() {
   const APPS = [
   { id: 'terminal', icon: '💻', label: 'Terminal', 
     content: () => (
-      <div className="terminal-content">
-        <p>Welcome to the aaa</p>
-        <p>Type 'help' for a list of commands.</p>
-      </div> )},
+      <CodeEditor />
+    )},
   
   { id: 'editor', icon: '📝', label: 'Editor',
     content: () => (

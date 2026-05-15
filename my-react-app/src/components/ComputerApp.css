@@ -23,13 +23,14 @@
 
 .computer-app-back{
     position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 22px;
+    right: 20px;
+    top: 20px;
+    width: 25px;
     height: 20px;
     background-color: #ff0202;
     border-radius: 10px;
     cursor: pointer;
+    z-index: 99999;
 }
 
 .computer-app-screen {

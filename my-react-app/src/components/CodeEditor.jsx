@@ -136,7 +136,7 @@ function CodeEditor({ onRun }) {
       </div>
 
       <Editor
-        height="337px"
+        height="330px"
         language="javascript"
         theme="vs-dark"
         value={code}
