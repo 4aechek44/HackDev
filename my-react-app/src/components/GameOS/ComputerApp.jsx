@@ -69,29 +69,19 @@ export default function Computer() {
 
   return (
 
-    <div
-      ref={ref}
-      style={{ position: 'relative' }}
-    >
-
+    <div ref={ref} style={{ position: 'relative' }}>
       <div className="computer-shell">
-
         {/* TASKBAR */}
-
         <div className="computer-taskbar"></div>
-
         {/* ИКОНКИ */}
-
         <div className="computer-apps">
-
           {APPS.map(app => (
-
+            
             <button
               key={app.id}
               className="app-button"
               onClick={() => openApp(app.id)}
             >
-
               <div className="app-emoji">
                 {app.icon}
               </div>
@@ -101,9 +91,7 @@ export default function Computer() {
               </span>
 
             </button>
-
           ))}
-
         </div>
 
         {/* ОКНА */}
@@ -114,9 +102,7 @@ export default function Computer() {
 
           return (
 
-            <div
-              key={app.id}
-              className={`${app.id}-menu computer-app-screen`}
+            <div key={app.id} className={`${app.id}-menu computer-app-screen`}
               style={{
                 display:
                   activeApp === app.id
@@ -124,24 +110,14 @@ export default function Computer() {
                     : 'none'
               }}
             >
-
-              <button
-                className="computer-app-back"
-                onClick={() => closeApp(app.id)}
-              >
-                x
-              </button>
+              <button className="computer-app-back" onClick={() => closeApp(app.id)}>x</button>
 
               {app.content}
 
             </div>
-
           );
-
         })}
-
       </div>
-
     </div>
   );
 }
