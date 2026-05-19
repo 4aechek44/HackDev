@@ -1,4 +1,5 @@
 import CodeEditor from './CodeEditor';
+import Browser from './Browser';
 import './ComputerApp.css';
 import { useState, useRef } from 'react';
 
@@ -19,9 +20,8 @@ export default function Computer() {
 
   { id: 'browser', icon: '🌐', label: 'Browser',
     content: () => (
-      <div className="browser-content">
-        <p>Browser coming soon...</p>
-      </div> )}
+      <Browser />
+    )}
 ];
 
   const [activeApp, setActiveApp] = useState(null);

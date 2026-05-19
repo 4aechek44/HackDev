@@ -1,10 +1,10 @@
 import './App.css';
 import Navbar from "./components/Navbar";
 import Quests from "./components/Quests";
-import Computer from "./components/ComputerApp";
+import Computer from "./components/GameOS/ComputerApp";
 import Phone from "./components/Phone";
 import Hacker from './components/Hacker';
-import { GameProvider } from "./components/GameContext";
+import { GameProvider } from "./game/GameContext";
 
 
 function App() {

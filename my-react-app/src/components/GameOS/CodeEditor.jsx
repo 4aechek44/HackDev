@@ -1,8 +1,9 @@
 import { useState, useRef, useContext } from 'react';
 import Editor from '@monaco-editor/react';
 import './CodeEditor.css';
-import GameContext from './GameContext';
-import { quests } from '../data/quests';
+import GameContext from '../../game/GameContext';
+import { buildCodeRunResult, validateQuest } from '../../game/QuestEngine';
+import { quests } from '../../data/quests';
 
 const LOG_META = {
   log:    { prefix: '',             cls: 'out-log' },
@@ -89,20 +90,30 @@ function CodeEditor({ onRun }) {
 
       const { logs: newLogs, scope, repl, error } = e.data.data;
       setLogs(newLogs);
-      if (onRun) onRun(e.data.data);
+      const runResult = buildCodeRunResult({
+        code,
+        logs: newLogs,
+        scope,
+        repl,
+        error,
+      });
+      if (onRun) onRun(runResult);
 
       const quest = quests[activeQuest];
 
       // scope содержит var-переменные + __repl__ для let/const
-      const fullScope = { ...scope, __repl__: repl };
+      const fullScope = runResult.scope;
 
       // logLines — только console.log строки (для простых expected-квестов)
-      const logLines = newLogs.filter(l => l.type === 'log').map(l => l.text);
-      const logResult = logLines.join('\n');
+      const logLines = runResult.logLines;
+      const logResult = runResult.output;
 
-      const passed = quest.validate
-        ? quest.validate(logResult, logLines, fullScope)
-        : logResult.trim() === (quest.expected ?? '').trim();
+      const passed = validateQuest(quest, {
+        ...runResult,
+        scope: fullScope,
+        logLines,
+        output: logResult,
+      });
 
       if (passed) {
         setStatus('success');

@@ -1,6 +1,6 @@
 import './Quests.css';
 import { useContext } from 'react';
-import GameContext from './GameContext';
+import GameContext from '../game/GameContext';
 import { quests } from '../data/quests';
 
 function Quests() {

@@ -1,7 +1,7 @@
 import './Phone.css';
 import { useState, useEffect, useRef } from 'react';
 import { useContext } from 'react';
-import GameContext from './GameContext';
+import GameContext from '../game/GameContext';
 
 export default function Phone() {
   

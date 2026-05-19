@@ -1,7 +1,7 @@
 import './Navbar.css';
 import { useState } from 'react';
 import { useContext } from 'react';
-import GameContext from './GameContext';
+import GameContext from '../game/GameContext';
 
 
 function Navbar() {
