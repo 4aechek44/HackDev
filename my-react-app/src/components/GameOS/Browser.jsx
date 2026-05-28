@@ -4,16 +4,27 @@ import GameContext from '../../game/GameContext';
 
 export default function Browser() {
   const { scene } = useContext(GameContext);
+  const page = scene?.browserPage || 'home';
+   
 
   return (
     <div className="browser-content">
-      <div className="browser-toolbar">
-        <span className="browser-url">{scene.url}</span>
+      
+      <div className="browser-tabs">
+        <div className="browser-tab active">New Tab</div>
       </div>
-      <div className="browser-scene">
-        <h3>{scene.title}</h3>
-        <p>{scene.status}</p>
+
+      <div className="browser-addressbar">
+        
+      </div> 
+
+    <h1 className="browser-title">Gaagle</h1>
+      
+      <div className="browser-searchbar">
+        <input className='browser-searchbar-input' type="text" />
+        <button className='browser-searchbar-button'>🔍</button>  
       </div>
+    
     </div>
   );
 }
