@@ -8,7 +8,6 @@ export default function Browser() {
     browserStatus,
     scene,
     openBrowserUrl,
-    suggestedUrl,
   } = useContext(GameContext);
   const [address, setAddress] = useState(browserUrl);
 
@@ -17,27 +16,27 @@ export default function Browser() {
     openBrowserUrl(address);
   };
 
-  const openSuggestedUrl = () => {
-    if (!suggestedUrl) return;
-    setAddress(suggestedUrl);
-    openBrowserUrl(suggestedUrl);
-  };
-
   return (
     <div className="browser-content">
       <div className="browser-tabs">
-        <div className="browser-tab active">New Tab</div>
+        <div className="browser-tab active">
+          <span className="browser-tab-icon">G</span>
+          <span>New Tab</span>
+        </div>
+        <button className="browser-add-tab">+</button>
       </div>
 
-      <form className="browser-addressbar" onSubmit={submitAddress}>
-        <input
-          className="browser-address-input"
-          value={address}
-          onChange={(event) => setAddress(event.target.value)}
-          placeholder="Search or enter address"
-        />
-        <button className="browser-go-button" type="submit">Go</button>
-      </form>
+      <div className="browser-toolbar">
+        <form className="browser-addressbar" onSubmit={submitAddress}>
+          <span className="browser-address-logo">G</span>
+          <input
+            className="browser-address-input"
+            value={address}
+            onChange={(event) => setAddress(event.target.value)}
+            placeholder="https://main.com"
+          />
+        </form>
+      </div>
 
       {browserStatus === 'scene' && scene ? (
         <div className="browser-scene">
@@ -52,21 +51,25 @@ export default function Browser() {
         </div>
       ) : (
         <div className="browser-start">
-          <h1 className="browser-title">Gaagle</h1>
+          <h1 className="browser-title">
+            <span className="browser-title-blue">G</span>
+            <span className="browser-title-red">a</span>
+            <span className="browser-title-yellow">a</span>
+            <span className="browser-title-blue">g</span>
+            <span className="browser-title-green">l</span>
+            <span className="browser-title-red">e</span>
+          </h1>
+
           <form className="browser-searchbar" onSubmit={submitAddress}>
+            <span className="browser-search-icon">⌕</span>
             <input
               className="browser-searchbar-input"
               value={address}
               onChange={(event) => setAddress(event.target.value)}
-              placeholder="Search or enter address"
+              placeholder="type a URL"
             />
-            <button className="browser-searchbar-button" type="submit">Search</button>
+            <button className="browser-searchbar-button" type="submit">Go</button>
           </form>
-          {suggestedUrl && (
-            <button className="browser-suggested-url" type="button" onClick={openSuggestedUrl}>
-              {suggestedUrl}
-            </button>
-          )}
         </div>
       )}
     </div>

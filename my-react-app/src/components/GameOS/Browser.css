@@ -1,82 +1,122 @@
 .browser-content {
-  min-height: 320px;
-  background: #08080f;
-  border: 1px solid #2b2b46;
-  border-radius: 8px;
-  color: #d7d7ef;
+  width: 100%;
+  height: 100%;
+  min-height: 369px;
+  min-width: 880px;
+  margin-left: -15px;
+  margin-top: -15px;
+  color: #e8eaed;
   overflow: hidden;
-  font-family: 'Courier New', monospace;
+  font-family: Arial, sans-serif;
+  position: relative;
+  background: #353535;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .browser-tabs {
   display: flex;
-  height: 30px;
   align-items: flex-end;
-  padding: 0 10px;
-  background: #11111d;
-  border-bottom: 1px solid #2b2b46;
+  height: 34px;
+  padding: 4px 8px 0;
+  background: #202124;
 }
 
 .browser-tab {
-  min-width: 120px;
-  padding: 7px 10px 6px;
-  border: 1px solid #2b2b46;
-  border-bottom: none;
-  border-radius: 6px 6px 0 0;
-  background: #181827;
-  color: #a8b3b5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 190px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 9px 9px 0 0;
+  background: #3c4043;
+  color: #e8eaed;
   font-size: 12px;
 }
 
-.browser-tab.active {
-  background: #08080f;
-  color: #f2f2ff;
+.browser-add-tab {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  margin-bottom: 4px;
+  border-radius: 50%;
+  background: transparent;
+  color: #bdc1c6;
+  font-size: 15px;
+}
+
+.browser-tab-icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #4285f4;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.browser-toolbar {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 12px;
+  background: #3c4043;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .browser-addressbar {
   display: flex;
-  gap: 8px;
-  padding: 10px;
-  background: #08080f;
-  border-bottom: 1px solid #202035;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background: #2f3033;
+}
+
+.browser-addressbar:focus-within {
+  border-color: #8ab4f8;
+  background: #35363a;
+}
+
+.browser-address-logo {
+  margin-right: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .browser-address-input,
 .browser-searchbar-input {
   min-width: 0;
   flex: 1;
-  border: 1px solid #343451;
-  border-radius: 5px;
-  background: #11111d;
-  color: #d7d7ef;
+  border: none;
+  background: transparent;
+  color: #e8eaed;
   font: inherit;
-  font-size: 12px;
-  padding: 7px 10px;
   outline: none;
 }
 
-.browser-address-input:focus,
-.browser-searchbar-input:focus {
-  border-color: #5ed957;
+.browser-address-input {
+  font-size: 14px;
 }
 
-.browser-go-button,
-.browser-searchbar-button,
-.browser-suggested-url {
-  border: 1px solid #5ed957;
-  border-radius: 5px;
-  background: #102015;
-  color: #5ed957;
-  cursor: pointer;
-  font: inherit;
-  font-size: 12px;
-  padding: 7px 12px;
+.browser-address-input::placeholder,
+.browser-searchbar-input::placeholder {
+  color: #9aa0a6;
 }
 
 .browser-start,
 .browser-not-found,
 .browser-scene {
-  min-height: 240px;
+  min-height: calc(100% - 76px);
   padding: 24px;
 }
 
@@ -85,26 +125,77 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 24px;
+  background: #353535;
 }
 
 .browser-title {
+  display: flex;
   margin: 0;
-  color: #f2f2ff;
-  font-size: 42px;
+  font-family: Arial, sans-serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1;
   letter-spacing: 0;
+}
+
+.browser-title-blue {
+  color: #8ab4f8;
+}
+
+.browser-title-red {
+  color: #f28b82;
+}
+
+.browser-title-yellow {
+  color: #fdd663;
+}
+
+.browser-title-green {
+  color: #81c995;
 }
 
 .browser-searchbar {
   display: flex;
-  width: min(520px, 100%);
-  gap: 8px;
+  align-items: center;
+  width: min(610px, 88%);
+  height: 44px;
+  padding: 0 8px 0 16px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.28);
 }
 
-.browser-suggested-url {
-  border-color: #343451;
-  background: #11111d;
-  color: #7dd3fc;
+.browser-search-icon {
+  margin-right: 12px;
+  color: #5f6368;
+  font-size: 22px;
+}
+
+.browser-searchbar-input {
+  color: #202124;
+  font-size: 15px;
+}
+
+.browser-searchbar-input::placeholder {
+  color: #5f6368;
+}
+
+.browser-searchbar-button {
+  min-width: 40px;
+  height: 30px;
+  border: none;
+  border-radius: 16px;
+  background: #f1f3f4;
+  color: #202124;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  padding: 0 12px;
+}
+
+.browser-searchbar-button:hover {
+  background: #e8eaed;
 }
 
 .browser-scene {
@@ -113,6 +204,7 @@
     linear-gradient(90deg, rgba(94, 217, 87, 0.05) 1px, transparent 1px),
     #050508;
   background-size: 24px 24px;
+  font-family: 'Courier New', monospace;
 }
 
 .browser-scene h1,
@@ -139,4 +231,8 @@
   background: #11111d;
   color: #7dd3fc;
   font-size: 12px;
+}
+
+.browser-not-found {
+  background: #353535;
 }
