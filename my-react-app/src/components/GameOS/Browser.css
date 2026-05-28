@@ -1,0 +1,142 @@
+.browser-content {
+  min-height: 320px;
+  background: #08080f;
+  border: 1px solid #2b2b46;
+  border-radius: 8px;
+  color: #d7d7ef;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+.browser-tabs {
+  display: flex;
+  height: 30px;
+  align-items: flex-end;
+  padding: 0 10px;
+  background: #11111d;
+  border-bottom: 1px solid #2b2b46;
+}
+
+.browser-tab {
+  min-width: 120px;
+  padding: 7px 10px 6px;
+  border: 1px solid #2b2b46;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  background: #181827;
+  color: #a8b3b5;
+  font-size: 12px;
+}
+
+.browser-tab.active {
+  background: #08080f;
+  color: #f2f2ff;
+}
+
+.browser-addressbar {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: #08080f;
+  border-bottom: 1px solid #202035;
+}
+
+.browser-address-input,
+.browser-searchbar-input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid #343451;
+  border-radius: 5px;
+  background: #11111d;
+  color: #d7d7ef;
+  font: inherit;
+  font-size: 12px;
+  padding: 7px 10px;
+  outline: none;
+}
+
+.browser-address-input:focus,
+.browser-searchbar-input:focus {
+  border-color: #5ed957;
+}
+
+.browser-go-button,
+.browser-searchbar-button,
+.browser-suggested-url {
+  border: 1px solid #5ed957;
+  border-radius: 5px;
+  background: #102015;
+  color: #5ed957;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+
+.browser-start,
+.browser-not-found,
+.browser-scene {
+  min-height: 240px;
+  padding: 24px;
+}
+
+.browser-start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.browser-title {
+  margin: 0;
+  color: #f2f2ff;
+  font-size: 42px;
+  letter-spacing: 0;
+}
+
+.browser-searchbar {
+  display: flex;
+  width: min(520px, 100%);
+  gap: 8px;
+}
+
+.browser-suggested-url {
+  border-color: #343451;
+  background: #11111d;
+  color: #7dd3fc;
+}
+
+.browser-scene {
+  background:
+    linear-gradient(rgba(94, 217, 87, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 217, 87, 0.05) 1px, transparent 1px),
+    #050508;
+  background-size: 24px 24px;
+}
+
+.browser-scene h1,
+.browser-not-found h1 {
+  margin: 0 0 10px;
+  color: #5ed957;
+  font-size: 22px;
+}
+
+.browser-scene p,
+.browser-not-found p {
+  max-width: 560px;
+  margin: 0 0 14px;
+  color: #cfd7ff;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.browser-scene-status {
+  display: inline-block;
+  padding: 5px 8px;
+  border: 1px solid #343451;
+  border-radius: 4px;
+  background: #11111d;
+  color: #7dd3fc;
+  font-size: 12px;
+}
